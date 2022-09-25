@@ -16,7 +16,7 @@ const useUSSD = () => {
     const [endpoint, setEndpoint] = useState<string>(REACT_APP_USSD_ENDPOINT || '');
     const [network, setNetwork] = useState('4');
     const [sessionid, setSessionId] = useState((new Date()).getTime());
-    const [msisdn, setMsisdn] = useState<string>('');
+    const [msisdn, setMsisdn] = useState<string>('233244552821');
     const [ussdinput, setUssdInput] = useState<string>('1');
     const [screen, setScreen] = useState<string>('');
     const [responseType, setResponseType] = useState<string>('');
@@ -60,6 +60,7 @@ const useUSSD = () => {
 
     const resetSession = () => {
         setSessionId((new Date()).getTime());
+        setScreen('');
     }
 
     return {

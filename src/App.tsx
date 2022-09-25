@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <div className="App-container">
         <div style={{ position: 'relative' }}>
-          <div className="ussd-screen">
+          <div className="ussd-screen" style={{ display: screen === '' ? 'none' : 'block' }}>
             <div
               dangerouslySetInnerHTML={{ __html: screen }}
               className="ussd-screen-text"
