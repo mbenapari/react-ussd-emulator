@@ -60,6 +60,7 @@ const useUSSD = () => {
 
     const resetSession = () => {
         setSessionId((new Date()).getTime());
+        setUssdInput('1');
         setScreen('');
     }
 
