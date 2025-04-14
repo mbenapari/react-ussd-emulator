@@ -21,7 +21,7 @@ const useUSSD = () => {
     const [screen, setScreen] = useState<string>('');
     const [responseType, setResponseType] = useState<string>('');
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: React.SyntheticEvent | null): void => {
         if (e) e.preventDefault();
         const body = {
             pryussd_req: {
