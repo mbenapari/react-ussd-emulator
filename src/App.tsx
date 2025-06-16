@@ -16,6 +16,8 @@ function App() {
     screen,
     ussdinput,
     setUssdInput,
+    ussdCode,
+    setUssdCode,
     handleOkClick,
     resetSession,
     responseType,
@@ -56,6 +58,15 @@ function App() {
         </div>
 
         <form onSubmit={handleSubmit} className="emulator-controls">
+          <label>USSD Code</label>
+          <div>
+            <input
+              onChange={e => setUssdCode(e.target.value)}
+              value={ussdCode}
+              type="text"
+              placeholder="Enter USSD code (e.g., *161#)"
+            />
+          </div>
           <label>USSD endpoint</label>
           <div>
             <input
