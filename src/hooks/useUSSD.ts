@@ -18,15 +18,20 @@ const useUSSD = () => {
     const [sessionid, setSessionId] = useState((new Date()).getTime());
     const [msisdn, setMsisdn] = useState<string>('233244552821');
     const [ussdinput, setUssdInput] = useState<string>('1');
+    const [ussdCode, setUssdCode] = useState<string>('*161#'); // New USSD code input
     const [screen, setScreen] = useState<string>('');
     const [responseType, setResponseType] = useState<string>('');
 
     const handleSubmit = (e: React.SyntheticEvent | null): void => {
         if (e) e.preventDefault();
+        
+        // If this is a new session (no screen content), use the USSD code as input
+        const inputToSend = screen === '' ? ussdCode : ussdinput;
+        
         const body = {
             pryussd_req: {
                 msisdn,
-                ussdinput,
+                ussdinput: inputToSend,
                 network,
                 sessionid: sessionid.toString(),
             }
@@ -76,6 +81,8 @@ const useUSSD = () => {
         screen,
         ussdinput,
         setUssdInput,
+        ussdCode,
+        setUssdCode,
         handleOkClick,
         resetSession,
         responseType,
